@@ -8,6 +8,8 @@
 
 
 extern volatile rxData_t rxData;
+extern volatile rxData_t rxDataCopy;
+extern volatile uint8_t rxDataFlag;
 extern volatile txData_t txData;
 
 int8_t stepPin[JOINTS];
@@ -93,18 +95,25 @@ void updateBaseThread()
 
 void makeSteps()
 {
-	int8_t i;
-	int32_t stepNow;
+	static int8_t i;
+	static int32_t stepNow;
+
+
+    if (rxDataFlag == 1) {
+        rxDataFlag = 0;
+        memcpy(rxDataCopy.rxBuffer, rxData.rxBuffer, BUFFER_SIZE);
+    }
+
 
 	// loop through the step generators
 	for (i = 0; i <= JOINTS; i++)
 	{
 		stepNow = 0;
-		isEnabled[i] = ((rxData.jointEnable & (1 << i)) != 0);
+		isEnabled[i] = ((rxDataCopy.jointEnable & (1 << i)) != 0);
 
 		if (isEnabled[i] == true)
 		{
-			frequencyCommand[i] = rxData.jointFreqCmd[i];
+			frequencyCommand[i] = rxDataCopy.jointFreqCmd[i];
 			DDSaddValue[i] = frequencyCommand[i] * frequencyScale;
 			stepNow = DDSaccumulator[i];
 			DDSaccumulator[i] += DDSaddValue[i];
@@ -123,8 +132,12 @@ void makeSteps()
 
 			if (stepNow)
 			{
-				GPIO_PinWrite(STEP_PORT, dirPin[i], isForward[i]);
-				GPIO_PinWrite(STEP_PORT, stepPin[i], 1);
+                if (isForward[i] == true) {
+                    STEP_PORT->DR_SET = (1<<dirPin[i]);
+                } else {
+                    STEP_PORT->DR_CLEAR = (1<<dirPin[i]);
+                }
+                STEP_PORT->DR_SET = (1<<stepPin[i]);
 				txData.jointFeedback[i] = DDSaccumulator[i];
 				isStepping[i] = true;
 			}
@@ -135,13 +148,13 @@ void makeSteps()
 
 void resetSteps()
 {
-	int8_t i;
+	static int8_t i;
 
 	for (i = 0; i <= JOINTS; i++)
 	{
 		if (isStepping[i])
 		{
-			GPIO_PinWrite(STEP_PORT, stepPin[i], 0);
+            STEP_PORT->DR_CLEAR = (1<<stepPin[i]);
 		}
 	}
 }

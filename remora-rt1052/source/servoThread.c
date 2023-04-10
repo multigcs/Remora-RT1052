@@ -136,10 +136,10 @@ void configServoThread()
 void updateServoThread()
 {
 	monitorEthernet();
-	readInputs();
-	setOutputs();
+	//readInputs();
+	//setOutputs();
 	updatePWM();
-	updateNVMPG();
+	//updateNVMPG();
 }
 
 

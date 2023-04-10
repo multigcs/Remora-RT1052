@@ -127,18 +127,16 @@ void udp_data_callback(void *arg, struct udp_pcb *upcb, struct pbuf *p, const ip
 
 		// ensure an atomic access to the rxBuffer
 		// disable thread interrupts
-		__disable_irq();
+		//__disable_irq();
 
 		// then move the data
-		for (int i = 0; i < BUFFER_SIZE; i++)
-		{
-			rxData.rxBuffer[i] = rxBuffer.rxBuffer[i];
-		}
+        memcpy(rxData.rxBuffer, rxBuffer.rxBuffer, BUFFER_SIZE);
+        rxDataFlag = 1;
 
 		// re-enable thread interrupts
-		__enable_irq();
-	}
+		//__enable_irq();
 
+	}
 
 	// allocate pbuf from RAM
 	txBuf = pbuf_alloc(PBUF_TRANSPORT, txlen, PBUF_RAM);
