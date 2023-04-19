@@ -1,0 +1,5 @@
+/data2/src/Remora-RT1052/remora-rt1052/drivers/fsl_clock.h:1429:20:CLOCK_SetDiv	16	static
+/data2/src/Remora-RT1052/remora-rt1052/drivers/fsl_clock.h:1377:20:CLOCK_SetMux	16	static
+/data2/src/Remora-RT1052/remora-rt1052/drivers/fsl_clock.h:1492:20:CLOCK_DisableClock	0	static
+../board/clock_config.c:170:6:BOARD_BootClockRUN	16	static
+../board/clock_config.c:48:6:BOARD_InitBootClocks	0	static

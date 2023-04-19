@@ -22,8 +22,8 @@ void createThreads(void)
     PIT_EnableInterrupts(PIT, kPIT_Chnl_0, kPIT_TimerInterruptEnable);
 
     // PIT channel 1 - SERVO thread
-    PIT_SetTimerPeriod(PIT, kPIT_Chnl_1, CLOCK_GetFreq(kCLOCK_OscClk)/PRU_SERVOFREQ);
-    PIT_EnableInterrupts(PIT, kPIT_Chnl_1, kPIT_TimerInterruptEnable);
+    //PIT_SetTimerPeriod(PIT, kPIT_Chnl_1, CLOCK_GetFreq(kCLOCK_OscClk)/PRU_SERVOFREQ);
+    //PIT_EnableInterrupts(PIT, kPIT_Chnl_1, kPIT_TimerInterruptEnable);
 
     EnableIRQ(PIT_IRQn);
 }
@@ -31,7 +31,7 @@ void createThreads(void)
 void startThreads(void)
 {
     PIT_StartTimer(PIT, kPIT_Chnl_0);
-    PIT_StartTimer(PIT, kPIT_Chnl_1);
+    //PIT_StartTimer(PIT, kPIT_Chnl_1);
 }
 
 
@@ -47,7 +47,7 @@ void PIT_IRQHandler(void)
 
 		updateBaseThread();
 	}
-
+    /*
     status = PIT_GetStatusFlags(PIT, kPIT_Chnl_1);
 	if(status & (uint32_t)kPIT_TimerFlag)
 	{
@@ -56,6 +56,7 @@ void PIT_IRQHandler(void)
 
 		updateServoThread();
 	}
+    */
 
 }
 

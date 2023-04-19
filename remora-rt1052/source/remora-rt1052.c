@@ -210,8 +210,9 @@ int main(void)
     	}
 
     	EthernetTasks();
-        readInputs();
         setOutputs();
+        updatePWM();
+        monitorEthernet();
 
 
     }

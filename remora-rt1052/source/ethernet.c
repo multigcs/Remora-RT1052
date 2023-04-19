@@ -111,32 +111,24 @@ void udp_data_callback(void *arg, struct udp_pcb *upcb, struct pbuf *p, const ip
 	struct pbuf *txBuf;
 
 	// copy the UDP payload into the rxData structure
-	memcpy(&rxBuffer.rxBuffer, p->payload, p->len);
+	memcpy(rxData.rxBuffer, p->payload, p->len);
 
-	if (rxBuffer.header == PRU_READ)
+	if (rxData.header == PRU_READ)
 	{
 		txData.header = PRU_DATA;
 		txlen = BUFFER_SIZE;
 		cmdReceived = true;
 	}
-	else if (rxBuffer.header == PRU_WRITE)
+	else if (rxData.header == PRU_WRITE)
 	{
 		txData.header = PRU_ACKNOWLEDGE;
 		txlen = sizeof(txData.header);
 		cmdReceived = true;
-
-		// ensure an atomic access to the rxBuffer
-		// disable thread interrupts
-		//__disable_irq();
-
-		// then move the data
-        memcpy(rxData.rxBuffer, rxBuffer.rxBuffer, BUFFER_SIZE);
+        //memcpy(rxData.rxBuffer, rxBuffer.rxBuffer, BUFFER_SIZE);
         rxDataFlag = 1;
-
-		// re-enable thread interrupts
-		//__enable_irq();
-
 	}
+
+    readInputs();
 
 	// allocate pbuf from RAM
 	txBuf = pbuf_alloc(PBUF_TRANSPORT, txlen, PBUF_RAM);
@@ -149,6 +141,7 @@ void udp_data_callback(void *arg, struct udp_pcb *upcb, struct pbuf *p, const ip
 
 	// Send a Reply to the Client
 	udp_send(upcb, txBuf);
+	//udp_send(upcb, (char*)&txData.txBuffer);
 
 	// free the UDP connection, so we can accept new clients
 	udp_disconnect(upcb);

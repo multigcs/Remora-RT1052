@@ -1,0 +1,5 @@
+../source/ethernet.c:108:6:udp_data_callback	32	static
+../source/ethernet.c:156:6:udp_mpg_callback	16	static
+../source/ethernet.c:36:6:initEthernet	56	static
+../source/ethernet.c:64:6:EthernetTasks	8	static
+../source/ethernet.c:70:6:udpServer_init	16	static

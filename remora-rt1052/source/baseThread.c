@@ -87,6 +87,10 @@ void updateBaseThread()
 	}
 	else
 	{
+        if (rxDataFlag == 1) {
+            rxDataFlag = 0;
+            memcpy(rxDataCopy.rxBuffer, rxData.rxBuffer, BUFFER_SIZE);
+        }
 		resetSteps();
 		step = false;
 	}
@@ -97,13 +101,6 @@ void makeSteps()
 {
 	static int8_t i;
 	static int32_t stepNow;
-
-
-    if (rxDataFlag == 1) {
-        rxDataFlag = 0;
-        memcpy(rxDataCopy.rxBuffer, rxData.rxBuffer, BUFFER_SIZE);
-    }
-
 
 	// loop through the step generators
 	for (i = 0; i <= JOINTS; i++)

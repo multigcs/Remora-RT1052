@@ -1,0 +1,3 @@
+../source/threads.c:12:6:createThreads	8	static
+../source/threads.c:31:6:startThreads	0	static
+../source/threads.c:38:6:PIT_IRQHandler	8	static

@@ -1,0 +1,7 @@
+../source/servoThread.c:33:6:configServoThread	32	static
+../source/servoThread.c:136:6:updateServoThread	0	static
+../source/servoThread.c:146:6:monitorEthernet	8	static
+../source/servoThread.c:175:6:readInputs	8	static
+../source/servoThread.c:231:6:setOutputs	16	static
+../source/servoThread.c:302:6:setupPWM	16	static
+../source/servoThread.c:290:6:updatePWM	16	static

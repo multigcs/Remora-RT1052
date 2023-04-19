@@ -1,0 +1,3 @@
+../source/nvmpg.c:39:6:LPUART_UserCallback	0	static
+../source/nvmpg.c:55:6:initNVMPG	56	static
+../source/nvmpg.c:90:6:updateNVMPG	16	static

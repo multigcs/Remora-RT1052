@@ -1,0 +1,6 @@
+../lwip/port/enet_ethernetif.c:103:6:ethernetif_phy_init	56	static
+../lwip/port/enet_ethernetif.c:174:6:ethernetif_input	16	static
+../lwip/port/enet_ethernetif.c:193:7:ethernetif_get_enet_base	0	static
+../lwip/port/enet_ethernetif.c:237:7:ethernetif_init	24	static
+../lwip/port/enet_ethernetif.c:383:6:ethernetif_add_mmac_flt_needed	0	static
+../lwip/port/enet_ethernetif.c:413:6:ethernetif_rm_mmac_flt_needed	0	static

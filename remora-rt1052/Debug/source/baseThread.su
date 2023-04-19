@@ -1,0 +1,4 @@
+../source/baseThread.c:29:6:configBaseThread	24	static
+../source/baseThread.c:100:6:makeSteps	48	static
+../source/baseThread.c:146:6:resetSteps	12	static
+../source/baseThread.c:80:6:updateBaseThread	8	static

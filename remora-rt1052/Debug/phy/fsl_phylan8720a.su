@@ -1,0 +1,10 @@
+/data2/src/Remora-RT1052/remora-rt1052/mdio/fsl_mdio.h:101:24:MDIO_Write	4	static
+/data2/src/Remora-RT1052/remora-rt1052/mdio/fsl_mdio.h:117:24:MDIO_Read	4	static
+../phy/fsl_phylan8720a.c:125:10:PHY_LAN8720A_Write	0	static
+../phy/fsl_phylan8720a.c:130:10:PHY_LAN8720A_Read	0	static
+../phy/fsl_phylan8720a.c:181:10:PHY_LAN8720A_GetLinkSpeedDuplex	24	static
+../phy/fsl_phylan8720a.c:222:10:PHY_LAN8720A_SetLinkSpeedDuplex	24	static
+../phy/fsl_phylan8720a.c:55:10:PHY_LAN8720A_Init	24	static
+../phy/fsl_phylan8720a.c:256:10:PHY_LAN8720A_EnableLoopback	24	static
+../phy/fsl_phylan8720a.c:135:10:PHY_LAN8720A_GetAutoNegotiationStatus	16	static
+../phy/fsl_phylan8720a.c:156:10:PHY_LAN8720A_GetLinkStatus	16	static

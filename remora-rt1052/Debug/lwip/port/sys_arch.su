@@ -1,0 +1,8 @@
+../lwip/port/sys_arch.c:70:6:sys_assert	8	static
+../lwip/port/sys_arch.c:89:7:lwip_rand	0	static
+../lwip/port/sys_arch.c:707:6:time_isr	0	static
+../lwip/port/sys_arch.c:715:6:time_init	8	static
+../lwip/port/sys_arch.c:735:7:sys_now	0	static
+../lwip/port/sys_arch.c:759:12:sys_arch_protect	0	static
+../lwip/port/sys_arch.c:779:6:sys_arch_unprotect	0	static
+../lwip/port/sys_arch.c:784:6:sys_check_core_locking	8	static

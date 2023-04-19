@@ -1,0 +1,8 @@
+../lwip/port/enet_ethernetif_kinetis.c:348:13:ethernetif_rx_free	24	static
+../lwip/port/enet_ethernetif_kinetis.c:526:13:ethernetif_rx_release	4	static
+../lwip/port/enet_ethernetif_kinetis.c:320:14:ethernetif_rx_alloc	8	static
+../lwip/port/enet_ethernetif_kinetis.c:367:6:ethernetif_enet_init	120	static
+../lwip/port/enet_ethernetif_kinetis.c:467:8:ethernetif_enet_ptr	0	static
+../lwip/port/enet_ethernetif_kinetis.c:594:14:ethernetif_linkinput	56	static
+../lwip/port/enet_ethernetif_kinetis.c:638:7:ethernetif_linkoutput	48	static
+../lwip/port/enet_ethernetif_kinetis.c:725:7:ethernetif0_init	16	static

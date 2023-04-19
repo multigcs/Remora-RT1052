@@ -1,0 +1,5 @@
+../mdio/fsl_enet_mdio.c:46:13:ENET_MDIO_Init	16	static
+../mdio/fsl_enet_mdio.c:63:17:ENET_MDIO_Write	16	static
+../mdio/fsl_enet_mdio.c:87:17:ENET_MDIO_Read	16	static
+../mdio/fsl_enet_mdio.c:117:17:ENET_MDIO_WriteExt	24	static
+../mdio/fsl_enet_mdio.c:145:17:ENET_MDIO_ReadExt	24	static

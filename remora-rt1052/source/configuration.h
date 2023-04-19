@@ -1,7 +1,7 @@
 #ifndef CONFIGURATION_H
 #define CONFIGURATION_H
 
-#define PRU_BASEFREQ    	60000    		// PRU Base thread ISR update frequency (hz)
+#define PRU_BASEFREQ    	120000    		// PRU Base thread ISR update frequency (hz)
 #define PRU_SERVOFREQ       10            // PRU Servo thread ISR update freqency (hz)
 
 #define STEPBIT     		22            	// bit location in DDS accum
@@ -20,7 +20,7 @@
 
 #define BUFFER_SIZE			68
 
-#define DATA_ERR_MAX		5
+#define DATA_ERR_MAX		0xFFFFFFFF
 
 // Connection LED
 #define LED_PORT 	GPIO3
