@@ -5,6 +5,8 @@
 
 #pragma pack(push, 1)
 
+
+
 typedef union
 {
   // this allow structured access to the incoming SPI data without having to move it
@@ -24,6 +26,8 @@ typedef union
 } rxData_t;
 
 extern volatile rxData_t rxData;
+extern volatile rxData_t rxDataCopy;
+extern volatile uint8_t rxDataFlag;
 
 
 typedef union

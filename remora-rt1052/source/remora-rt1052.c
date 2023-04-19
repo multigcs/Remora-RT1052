@@ -53,6 +53,8 @@ uint8_t noDataCount;
 // unions for RX, TX and MPG data
 rxData_t rxBuffer;
 volatile rxData_t rxData;
+volatile rxData_t rxDataCopy;
+volatile uint8_t rxDataFlag = 0;
 volatile txData_t txData;
 mpgData_t mpgData;
 uint8_t mpgTxData[53] = {'\0'};
@@ -194,6 +196,7 @@ int main(void)
 					  while(n-- > 0)
 					  {
 						  rxData.rxBuffer[n] = 0;
+						  rxDataCopy.rxBuffer[n] = 0;
 					  }
 				  }
 
